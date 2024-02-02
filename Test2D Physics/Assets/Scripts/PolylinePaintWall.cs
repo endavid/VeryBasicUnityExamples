@@ -7,6 +7,7 @@ public class PolylinePaintWall : MonoBehaviour
     public Color color = Color.white;
     public float lineWidth = 0.2f;
     public float bounceForce = 0.2f;
+    public bool makeItBounce = false;
 
     // Start is called before the first frame update
     void Start()
@@ -52,16 +53,19 @@ public class PolylinePaintWall : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            Debug.Log($"{other.name} hit the edge!");
+            //Debug.Log($"{other.name} hit the edge!");
             var renderer = other.gameObject.GetComponent<Renderer>();
             if (renderer != null)
             {
                 renderer.material.color = color;
             }
-            var body = other.gameObject.GetComponent<Rigidbody2D>();
-            if (body != null)
+            if (makeItBounce)
             {
-                body.AddForce(RandomUpwardForce(), ForceMode2D.Impulse);
+                var body = other.gameObject.GetComponent<Rigidbody2D>();
+                if (body != null)
+                {
+                    body.AddForce(RandomUpwardForce(), ForceMode2D.Impulse);
+                }
             }
         }
     }

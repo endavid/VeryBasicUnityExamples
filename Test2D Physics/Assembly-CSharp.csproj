@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/Spawner.cs" />
     <Compile Include="Assets/Scripts/PolylinePaintWall.cs" />
+    <Compile Include="Assets/Scripts/BoxPaintWall.cs" />
     <Compile Include="Assets/Scripts/Rotator.cs" />
   </ItemGroup>
   <ItemGroup>
